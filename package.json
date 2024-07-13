@@ -1,8 +1,10 @@
 {
   "name": "anboto_back",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,8 +20,10 @@
   "keywords": [],
   "description": "",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "mysql2": "^3.10.2"
+    "mysql2": "^3.10.2",
+    "sequelize": "^6.37.3"
   }
 }

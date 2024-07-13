@@ -1,30 +1,59 @@
-const connection = require('../config/db');
+import { DataTypes } from 'sequelize';
+import db from '../config/db.js';
 
-const UsuarioAdmin = {
-    create: async (newUser) => {
-        const [result] = await connection.promise().query('INSERT INTO usuario_admin SET ?', newUser);
-        return { id: result.insertId, ...newUser };
-    },
+const UsuarioAdmin = db.sequelize.define("usuario_admin", {
+  id_usuario_admin: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  nombre: {
+    type: DataTypes.STRING(45),
+    allowNull: false
+  },
+  numero_telefono: {
+    type: DataTypes.STRING(10),
+    allowNull: false
+  },
+  email: {
+    type: DataTypes.STRING(45),
+    allowNull: false,
+    unique: true
+  },
+  password: {
+    type: DataTypes.STRING(45),
+    allowNull: false
+  },
+  fecha_nacimiento: {
+    type: DataTypes.DATE,
+    allowNull: false
+  },
+  acepta_termino: {
+    type: DataTypes.TINYINT,
+    allowNull: false
+  },
+  fk_metodo_pago_admin_usuario: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  fk_configuraciones_recibo_usuario: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  fk_datos_tienda_usuario: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  }
+}, {
+  timestamps: true
+});
 
-    findById: async (id) => {
-        const [rows] = await connection.promise().query('SELECT * FROM usuario_admin WHERE id_usuario = ?', [id]);
-        return rows[0];
-    },
-
-    findAll: async () => {
-        const [rows] = await connection.promise().query('SELECT * FROM usuario_admin');
-        return rows;
-    },
-
-    update: async (id, updatedUser) => {
-        await connection.promise().query('UPDATE usuario_admin SET ? WHERE id_usuario = ?', [updatedUser, id]);
-        return { id, ...updatedUser };
-    },
-
-    remove: async (id) => {
-        await connection.promise().query('DELETE FROM usuario_admin WHERE id_usuario = ?', [id]);
-        return { message: 'Usuario eliminado exitosamente' };
-    }
-};
-
-module.exports = UsuarioAdmin;
+export default UsuarioAdmin;

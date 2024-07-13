@@ -1,29 +1,24 @@
-const UsuarioAdmin = require('../models/usuarioAdmin.model');
+import UsuarioAdmin from '../models/usuarioAdmin.model.js';
 
-const createUser = async (userData) => {
-    return await UsuarioAdmin.create(userData);
+export const createUsuarioAdmin = async (data) => {
+  return await UsuarioAdmin.create(data);
 };
 
-const getUserById = async (id) => {
-    return await UsuarioAdmin.findById(id);
+export const findAllUsuariosAdmin = async () => {
+  return await UsuarioAdmin.findAll();
 };
 
-const getAllUsers = async () => {
-    return await UsuarioAdmin.findAll();
+export const findUsuarioAdminById = async (id) => {
+  return await UsuarioAdmin.findByPk(id);
 };
 
-const updateUser = async (id, userData) => {
-    return await UsuarioAdmin.update(id, userData);
+export const updateUsuarioAdmin = async (id, data) => {
+  return await UsuarioAdmin.update(data, { where: { id_usuario_admin: id } });
 };
 
-const deleteUser = async (id) => {
-    return await UsuarioAdmin.remove(id);
+export const deleteUsuarioAdmin = async (id) => {
+  return await UsuarioAdmin.destroy({ where: { id_usuario_admin: id } });
 };
 
-module.exports = {
-    createUser,
-    getUserById,
-    getAllUsers,
-    updateUser,
-    deleteUser,
-};
+
+
