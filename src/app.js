@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
 import express from 'express';
+import configuracionesReciboRoutes from './routes/configuracionesRecibo.routes.js';
 import estadoRoutes from './routes/estado.routes.js';
 import metodoPagoAdminRoutes from './routes/metodoPagoAdmin.routes.js';
 import pagoRoutes from './routes/pago.routes.js';
@@ -20,6 +21,7 @@ app.use('/api/metodo_pago_admin', metodoPagoAdminRoutes);
 app.use('/api/estado', estadoRoutes);
 app.use('/api/pedido', pedidoRoutes);
 app.use('/api/pago_cliente', pagoClienteRoutes);
+app.use('/api/configuraciones_recibo', configuracionesReciboRoutes);
 
 
 export default app;
