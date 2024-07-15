@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
 import express from 'express';
+import carritoCompraRoutes from './routes/carritoCompra.routes.js';
 import configuracionesReciboRoutes from './routes/configuracionesRecibo.routes.js';
 import estadoRoutes from './routes/estado.routes.js';
 import metodoPagoAdminRoutes from './routes/metodoPagoAdmin.routes.js';
@@ -26,6 +27,7 @@ app.use('/api/pago_cliente', pagoClienteRoutes);
 app.use('/api/configuraciones_recibo', configuracionesReciboRoutes);
 app.use('/api/usuario_cliente', usuarioClienteRoutes);
 app.use('/api/opinion', opinionRoutes);
+app.use('/api/carrito_compra', carritoCompraRoutes);
 
 
 export default app;
