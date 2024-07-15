@@ -4,6 +4,7 @@ import carritoCompraRoutes from './routes/carritoCompra.routes.js';
 import configuracionesReciboRoutes from './routes/configuracionesRecibo.routes.js';
 import estadoRoutes from './routes/estado.routes.js';
 import metodoPagoAdminRoutes from './routes/metodoPagoAdmin.routes.js';
+import metodoPagoClienteRoutes from './routes/metodoPagoCliente.routes.js';
 import opinionRoutes from './routes/opinion.routes.js';
 import pagoRoutes from './routes/pago.routes.js';
 import pagoClienteRoutes from './routes/pagoCliente.routes.js';
@@ -28,6 +29,7 @@ app.use('/api/configuraciones_recibo', configuracionesReciboRoutes);
 app.use('/api/usuario_cliente', usuarioClienteRoutes);
 app.use('/api/opinion', opinionRoutes);
 app.use('/api/carrito_compra', carritoCompraRoutes);
+app.use('/api/metodo_pago_cliente', metodoPagoClienteRoutes);
 
 
 export default app;
