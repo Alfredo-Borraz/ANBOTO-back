@@ -9,6 +9,7 @@ import pedidoRoutes from './routes/pedido.routes.js';
 import planSuscripcionRoutes from './routes/planSuscripcion.routes.js';
 import productoRoutes from './routes/producto.routes.js';
 import usuarioAdminRoutes from './routes/usuarioAdmin.routes.js';
+import usuarioClienteRoutes from './routes/usuarioCliente.routes.js';
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use('/api/estado', estadoRoutes);
 app.use('/api/pedido', pedidoRoutes);
 app.use('/api/pago_cliente', pagoClienteRoutes);
 app.use('/api/configuraciones_recibo', configuracionesReciboRoutes);
+app.use('/api/usuario_cliente', usuarioClienteRoutes);
 
 
 export default app;
