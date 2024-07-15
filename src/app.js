@@ -3,6 +3,7 @@ import express from 'express';
 import carritoCompraRoutes from './routes/carritoCompra.routes.js';
 import configuracionesReciboRoutes from './routes/configuracionesRecibo.routes.js';
 import estadoRoutes from './routes/estado.routes.js';
+import itemCarritoRoutes from './routes/itemCarrito.routes.js';
 import metodoPagoAdminRoutes from './routes/metodoPagoAdmin.routes.js';
 import metodoPagoClienteRoutes from './routes/metodoPagoCliente.routes.js';
 import opinionRoutes from './routes/opinion.routes.js';
@@ -30,6 +31,7 @@ app.use('/api/usuario_cliente', usuarioClienteRoutes);
 app.use('/api/opinion', opinionRoutes);
 app.use('/api/carrito_compra', carritoCompraRoutes);
 app.use('/api/metodo_pago_cliente', metodoPagoClienteRoutes);
+app.use('/api/item_carrito', itemCarritoRoutes);
 
 
 export default app;
