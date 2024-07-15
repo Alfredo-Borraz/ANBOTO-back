@@ -2,6 +2,7 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import carritoCompraRoutes from './routes/carritoCompra.routes.js';
 import configuracionesReciboRoutes from './routes/configuracionesRecibo.routes.js';
+import datosTiendaRoutes from './routes/datosTienda.routes.js';
 import estadoRoutes from './routes/estado.routes.js';
 import itemCarritoRoutes from './routes/itemCarrito.routes.js';
 import metodoPagoAdminRoutes from './routes/metodoPagoAdmin.routes.js';
@@ -32,6 +33,7 @@ app.use('/api/opinion', opinionRoutes);
 app.use('/api/carrito_compra', carritoCompraRoutes);
 app.use('/api/metodo_pago_cliente', metodoPagoClienteRoutes);
 app.use('/api/item_carrito', itemCarritoRoutes);
+app.use('/api/datos_tienda', datosTiendaRoutes);
 
 
 export default app;
