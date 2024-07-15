@@ -3,6 +3,7 @@ import express from 'express';
 import configuracionesReciboRoutes from './routes/configuracionesRecibo.routes.js';
 import estadoRoutes from './routes/estado.routes.js';
 import metodoPagoAdminRoutes from './routes/metodoPagoAdmin.routes.js';
+import opinionRoutes from './routes/opinion.routes.js';
 import pagoRoutes from './routes/pago.routes.js';
 import pagoClienteRoutes from './routes/pagoCliente.routes.js';
 import pedidoRoutes from './routes/pedido.routes.js';
@@ -24,6 +25,7 @@ app.use('/api/pedido', pedidoRoutes);
 app.use('/api/pago_cliente', pagoClienteRoutes);
 app.use('/api/configuraciones_recibo', configuracionesReciboRoutes);
 app.use('/api/usuario_cliente', usuarioClienteRoutes);
+app.use('/api/opinion', opinionRoutes);
 
 
 export default app;
