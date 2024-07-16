@@ -1,9 +1,11 @@
-import { Sequelize } from 'sequelize';
+
 import dbConfig from './db.config.js';
+const Sequelize = require("sequelize");
+
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, dbConfig.PORT,{
-  dialect: 'mysql',
   host: dbConfig.HOST,
+  dialect: dbConfig.dialect,
   pool: {
     max: 5,
     min: 0,
@@ -12,14 +14,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, d
   }
 });
 
-sequelize
-        .authenticate()
-        .then(()=>{
-          console.log('Connection has been established successfully.');
-        })
-        .catch((err)=>{
-          console.log('Unable to connect to the database:', err);
-        })
+
 
 
 const db = {};
