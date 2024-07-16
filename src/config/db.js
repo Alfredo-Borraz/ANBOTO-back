@@ -1,8 +1,9 @@
 import { Sequelize } from 'sequelize';
 import dbConfig from './db.config.js';
+
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,{
   host: dbConfig.HOST,
-  dialect: 'mysql',
+  dialect: dbConfig.dialect,
   operatorsAliases: false,
   pool: {
     max: 5,
