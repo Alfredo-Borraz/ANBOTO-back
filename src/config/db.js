@@ -1,9 +1,7 @@
 import { Sequelize } from 'sequelize';
 import dbConfig from './db.config.js';
-
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, dbConfig.PORT,{
   host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
   operatorsAliases: false,
   pool: {
     max: 5,
@@ -13,9 +11,11 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   }
 });
 
+
 const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
+
 
 export default db;
 
