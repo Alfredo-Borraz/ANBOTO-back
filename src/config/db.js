@@ -1,9 +1,13 @@
 import  Sequelize  from 'sequelize';
 import dbConfig from './db.config.js';
+import dotenv from 'dotenv';
 
+
+dotenv.config();
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,{
   host: dbConfig.HOST,
+  port: dbConfig.PORT,
   dialect: dbConfig.dialect,
   operatorsAliases: false,
   pool: {
