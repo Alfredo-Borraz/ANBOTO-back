@@ -3,7 +3,7 @@ const dbConfig = {
   PORT: process.env.MYSQLPORT,
   USER: process.env.MYSQLUSER,
   PASSWORD: process.env.MYSQLPASSWORD,
-  DB: process.env.MYSQLDB,
+  DB: process.env.MYSQLNAME,
   dialect: process.env.MYSQLDIALECT
 };
 
