@@ -1,4 +1,4 @@
-import  Sequelize  from 'sequelize';
+import Sequelize from 'sequelize';
 import dbConfig from './db.config.js';
 import dotenv from 'dotenv';
 
