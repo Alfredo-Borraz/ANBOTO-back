@@ -1,4 +1,3 @@
-import bcrypt from 'bcryptjs';
 import * as usuarioAdminService from '../services/usuarioAdmin.service.js';
 
 export const create = async (req, res) => {
@@ -68,8 +67,8 @@ export const login = async (req, res) => {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    const passwordIsValid = bcrypt.compareSync(password, usuario.password);
-    if (!passwordIsValid) {
+    // Verificación de contraseña en texto plano
+    if (usuario.password !== password) {
       return res.status(401).json({ message: 'Contraseña incorrecta' });
     }
 
