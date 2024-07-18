@@ -21,7 +21,6 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/login', usuarioAdminController.login);
 app.use('/api/usuario_admin', usuarioAdminRoutes);
 app.use('/api/producto', productoRoutes);
 app.use('/api/plan_suscripcion', planSuscripcionRoutes);
@@ -40,6 +39,5 @@ app.use('/api/datos_tienda', datosTiendaRoutes);
 
 
 export default app;
-
 
 

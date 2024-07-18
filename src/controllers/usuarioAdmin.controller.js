@@ -57,24 +57,4 @@ export const remove = async (req, res) => {
   }
 };
 
-//Verificacion de login, mediande email y password
-export const login = async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-      const usuario = await UsuarioAdmin.findOne({ where: { email: email } });
-      if (!usuario) {
-          return res.status(404).json({ message: "Usuario no encontrado." });
-      }
-
-      // Aquí deberías tener una comparación de hash de contraseña en lugar de una comparación directa
-      if (usuario.password === password) {
-          return res.status(200).json({ message: "Login exitoso.", usuario }); // Considera enviar un token JWT aquí
-      } else {
-          return res.status(401).json({ message: "Contraseña incorrecta." });
-      }
-  } catch (error) {
-      res.status(500).json({ message: error.message });
-  }
-};
 

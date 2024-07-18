@@ -21,4 +21,3 @@ export const deleteUsuarioAdmin = async (id) => {
 };
 
 
-
