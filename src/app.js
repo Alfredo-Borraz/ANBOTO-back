@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import express from 'express';
 import carritoCompraRoutes from './routes/carritoCompra.routes.js';
 import configuracionesReciboRoutes from './routes/configuracionesRecibo.routes.js';
@@ -18,6 +19,7 @@ import usuarioClienteRoutes from './routes/usuarioCliente.routes.js';
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/usuario_admin', usuarioAdminRoutes);
 app.use('/api/producto', productoRoutes);
