@@ -20,4 +20,9 @@ export const deleteUsuarioAdmin = async (id) => {
   return await UsuarioAdmin.destroy({ where: { id_usuario_admin: id } });
 };
 
+//enpoint login
+
+export const findUsuarioAdminByEmail = async (email) => {
+  return await UsuarioAdmin.findOne({ where: { email } });
+};
 

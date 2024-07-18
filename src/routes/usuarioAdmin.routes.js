@@ -9,6 +9,9 @@ router.get('/:id', usuarioAdminController.findOne);
 router.put('/:id', usuarioAdminController.update);
 router.delete('/:id', usuarioAdminController.remove);
 
+//enpoint login
+router.post('/login', usuarioAdminController.login);
+
 export default router;
 
 

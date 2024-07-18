@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 import * as usuarioAdminService from '../services/usuarioAdmin.service.js';
 
 export const create = async (req, res) => {
@@ -58,3 +59,22 @@ export const remove = async (req, res) => {
 };
 
 
+//enpoint login
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const usuario = await usuarioAdminService.findUsuarioAdminByEmail(email);
+    if (!usuario) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    const passwordIsValid = bcrypt.compareSync(password, usuario.password);
+    if (!passwordIsValid) {
+      return res.status(401).json({ message: 'Contraseña incorrecta' });
+    }
+
+    res.json({ message: 'Autenticación exitosa', usuario });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
