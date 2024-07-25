@@ -2,7 +2,8 @@ import * as datosTiendaService from '../services/datosTienda.service.js';
 
 export const create = async (req, res) => {
   try {
-    const datosTienda = await datosTiendaService.createDatosTienda(req.body);
+    const { fk_usuario, ...tiendaData } = req.body;
+    const datosTienda = await datosTiendaService.createDatosTienda(fk_usuario, tiendaData);
     res.status(201).send(datosTienda);
   } catch (error) {
     res.status(500).send({ message: error.message });
@@ -49,6 +50,20 @@ export const remove = async (req, res) => {
     const deleted = await datosTiendaService.deleteDatosTienda(req.params.id);
     if (deleted === 1) {
       res.status(200).send({ message: 'Datos Tienda deleted successfully.' });
+    } else {
+      res.status(404).send({ message: 'Datos Tienda not found.' });
+    }
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
+
+//crear tienda por un unico usuario admin
+export const findByUser = async (req, res) => {
+  try {
+    const datosTienda = await datosTiendaService.findDatosTiendaByUser(req.params.idUsuario);
+    if (datosTienda) {
+      res.status(200).send(datosTienda);
     } else {
       res.status(404).send({ message: 'Datos Tienda not found.' });
     }

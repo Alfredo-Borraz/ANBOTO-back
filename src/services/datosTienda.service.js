@@ -1,7 +1,7 @@
 import DatosTienda from '../models/datosTienda.model.js';
 
-export const createDatosTienda = async (data) => {
-  return await DatosTienda.create(data);
+export const createDatosTienda = async (fk_usuario, data) => {
+  return await DatosTienda.create({ ...data, fk_usuario });
 };
 
 export const findAllDatosTienda = async () => {
@@ -18,4 +18,8 @@ export const updateDatosTienda = async (id, data) => {
 
 export const deleteDatosTienda = async (id) => {
   return await DatosTienda.destroy({ where: { id_tienda: id } });
+};
+
+export const findDatosTiendaByUser = async (idUsuario) => {
+  return await DatosTienda.findOne({ where: { fk_usuario: idUsuario } });
 };
