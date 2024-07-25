@@ -22,10 +22,6 @@ const DatosTienda = db.sequelize.define('datos_tienda', {
   complemento: {
     type: DataTypes.STRING(45),
     allowNull: true
-  },
-  fk_producto: {
-    type: DataTypes.INTEGER,
-    allowNull: true
   }
 }, {
   timestamps: false
