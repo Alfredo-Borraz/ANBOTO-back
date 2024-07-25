@@ -15,16 +15,8 @@ const Opinion = db.sequelize.define('opinion', {
     type: DataTypes.INTEGER,
     allowNull: true
   },
-  titulo: {
-    type: DataTypes.STRING(45),
-    allowNull: false
-  },
   contenido: {
-    type: DataTypes.STRING(45),
-    allowNull: false
-  },
-  fecha_opinion: {
-    type: DataTypes.DATE(6),
+    type: DataTypes.STRING(100),
     allowNull: false
   },
   fk_usuario_cliente_opinion: {
@@ -34,6 +26,10 @@ const Opinion = db.sequelize.define('opinion', {
   fk_producto_opinar: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  sentiment_scores: {
+    type: DataTypes.TEXT,
+    allowNull: true
   },
   createdAt: {
     type: DataTypes.DATE,

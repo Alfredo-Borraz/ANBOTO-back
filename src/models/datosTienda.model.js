@@ -16,16 +16,16 @@ const DatosTienda = db.sequelize.define('datos_tienda', {
     allowNull: false
   },
   direccion: {
-    type: DataTypes.STRING(45),
+    type: DataTypes.STRING(70),
     allowNull: false
   },
   complemento: {
     type: DataTypes.STRING(45),
-    allowNull: false
+    allowNull: true
   },
   fk_producto: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true
   }
 }, {
   timestamps: false
