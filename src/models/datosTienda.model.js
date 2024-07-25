@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
 import db from '../config/db.js';
-import UsuarioAdmin from './usuarioAdmin.model.js';
 
 const DatosTienda = db.sequelize.define('datos_tienda', {
   id_tienda: {
@@ -31,7 +30,7 @@ const DatosTienda = db.sequelize.define('datos_tienda', {
   updatedAt: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
-  },
+  }/*,
   fk_usuario_admin: {
     type: DataTypes.INTEGER,
     references: {
@@ -39,13 +38,13 @@ const DatosTienda = db.sequelize.define('datos_tienda', {
       key: 'id_usuario_admin'
     },
     allowNull: false
-  }
+  }*/
 }, {
   timestamps: true
 });
 
 // Establecer la relación
-UsuarioAdmin.hasOne(DatosTienda, { foreignKey: 'fk_usuario_admin' });
-DatosTienda.belongsTo(UsuarioAdmin, { foreignKey: 'fk_usuario_admin' });
+//UsuarioAdmin.hasOne(DatosTienda, { foreignKey: 'fk_usuario_admin' });
+//DatosTienda.belongsTo(UsuarioAdmin, { foreignKey: 'fk_usuario_admin' });
 
 export default DatosTienda;
