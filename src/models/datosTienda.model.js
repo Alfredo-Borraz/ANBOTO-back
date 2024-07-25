@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import db from '../config/db.js';
-import Usuario from './usuario.model.js';
+import Usuario from './usuarioAdmin.model.js';
 
 const DatosTienda = db.sequelize.define('datos_tienda', {
   id_tienda: {
