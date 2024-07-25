@@ -41,7 +41,7 @@ const DatosTienda = db.sequelize.define('datos_tienda', {
     allowNull: false
   }
 }, {
-  timestamps: false
+  timestamps: true
 });
 
 // Establecer la relación
