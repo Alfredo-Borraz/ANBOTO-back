@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const SENTIMENT_API_URL = 'http://127.0.0.1:5000/sentiment';
+const SENTIMENT_API_URL = 'https://analisis-sentimiento.onrender.com/sentiment';
 
 export const analyzeSentiment = async (text) => {
   try {
