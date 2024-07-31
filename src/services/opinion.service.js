@@ -20,8 +20,8 @@ export const createOpinion = async (data) => {
 
     return await Opinion.create(opinionData);
   } catch (error) {
-    console.error('Error creating opinion:', error.message);
-    throw new Error(`Error creando la opinión: ${error.message}`);
+    console.error('Error creating opinion:', error);
+    throw error;
   }
 };
 
