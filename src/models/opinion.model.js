@@ -9,7 +9,7 @@ const Opinion = db.sequelize.define('opinion', {
   },
   id_producto: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true
   },
   calificacion: {
     type: DataTypes.INTEGER,
@@ -21,11 +21,11 @@ const Opinion = db.sequelize.define('opinion', {
   },
   fk_usuario_cliente_opinion: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true
   },
   fk_producto_opinar: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true
   },
   sentiment_scores: {
     type: DataTypes.TEXT,
